@@ -1,15 +1,12 @@
 name: Build and publish all localized versions
 on:
-  push:
-    branches: [main]
-    paths: ['tools/**', 'translations/**', 'upstream/**', 'tests/**', '.github/workflows/**']
   workflow_dispatch:
 permissions:
   contents: write
   statuses: write
 concurrency:
   group: private-localization-releases
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build-publish:
     runs-on: ubuntu-latest

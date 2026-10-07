@@ -7,7 +7,7 @@ class BuildTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):cls.rows=json.loads((ROOT/'upstream/releases.json').read_text())
  def test_all_archives_and_documents(self):
-  self.assertEqual(len(self.rows),19)
+  self.assertGreaterEqual(len(self.rows),19)
   for row in self.rows:
    with self.subTest(version=row['version']):
     out=ROOT/'dist'/row['version'];original=out/row['download_url'].rsplit('/',1)[-1];verify(original.read_bytes(),row)

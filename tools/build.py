@@ -89,7 +89,7 @@ Windows 非交互会话启动测试不代表所有窗口、DPI 和交互流程�
 | --- | --- | --- |
 '''
  for n,v in sums.items():body+=f"| `{n}` | `{v['md5']}` | `{v['sha1']}` |\n"
- body+='\n官方发布声明摘要（中文转述）：'+json.loads((ROOT/'upstream/release-summaries-zh.json').read_text())[row['version']]+'\n'
+ body+='\n官方发布声明摘要（中文转述）：'+json.loads((ROOT/'upstream/release-summaries-zh.json').read_text()).get(row['version'],'本版本由自动流程获取；完整官方发布声明见原版 Release Notes.txt 和上方官网链接。')+'\n'
  body+=f'''\n汉化说明：{report['scope']}已翻译 {report['dfm_translated']} 项窗体属性和 {len(report['stringtable_changes'])} 项字符串表文本；不代表全应用 100% 汉化。未更改扫描算法或过滤/脚本语法。1.1.3.0、1.1.3.1、1.1.4.0 另外修复了 UPX 解包导致的 DLL 导入名称损坏；修复限定于导入元数据，未改动机器代码。覆盖清单及版权说明见汉化 ZIP。
 
 验证范围：PE 资源结构、原有代码节不变、版本及哈希锁定；Windows 启动和中文菜单检查结果见仓库 tests/runtime-results.json。尚未完成所有 DPI、弹窗和交互操作的视觉验收。
