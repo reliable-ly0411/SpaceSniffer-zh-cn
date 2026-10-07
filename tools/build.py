@@ -53,12 +53,13 @@ def build(row):
  exe.write_bytes(output);report.update(version=row['version'],architecture=row['architecture'],original_archive_sha256=digest(original),original_exe_sha256=row['exe_sha256'],upx_unpacked=packed,upx_import_repaired=repaired)
  (work/'coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  members[row['exe_member']]=output
+ notes_notice='原版发布声明全文见保留的 Release Notes.txt' if 'Release Notes.txt' in members else '此版本是首次公开发布；原包未附 Release Notes.txt，官方发布声明见上述官网链接'
  members['COPYRIGHT-zh-CN.txt']=COPYRIGHT.encode('utf-8-sig')
  members['LOCALIZATION-REPOSITORY.txt']=(REPO+'\r\n').encode()
  readme=f'''SpaceSniffer {row['version']} 简体中文资源汉化 zh1 ({row['architecture']})
 官方发布日期：{row['official_date']}
 官方发布说明：{row['release_notes_url']}
-原版发布声明全文见保留的 Release Notes.txt；原版权条款见 Disclaimer.txt。
+{notes_notice}；原版权条款见 Disclaimer.txt。
 汉化范围：{report['scope']}
 已翻译窗体属性 {report['dfm_translated']} 项，常用字符串表 {len(report['stringtable_changes'])} 项。
 这不是整个应用的百分比覆盖率。动态扫描状态、部分错误和帮助、PDF 手册仍为英文。
@@ -82,7 +83,7 @@ Windows 非交互会话启动测试不代表所有窗口、DPI 和交互流程�
 
 官方发布日期：**{row['official_date']}**（本站 Release 创建日期是汉化发布日期）。
 
-官方发布声明：[Release notes]({row['release_notes_url']})；本版本原始发布声明保留在两个 ZIP 内的 `Release Notes.txt`，未改写为汉化团队声明。原版来源及发布日期：[官网下载页](https://www.uderzo.it/main_products/space_sniffer/download_alt.html)。
+官方发布声明：[Release notes]({row['release_notes_url']})；{notes_notice}；该原始声明归原作者所有。原版来源及发布日期：[官网下载页](https://www.uderzo.it/main_products/space_sniffer/download_alt.html)。
 
 | Archive | Archive MD5 | Archive SHA1 |
 | --- | --- | --- |

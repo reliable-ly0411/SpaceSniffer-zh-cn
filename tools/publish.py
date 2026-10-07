@@ -13,6 +13,7 @@ def status(state,description):
  api('POST','/statuses/'+os.environ['GITHUB_SHA'],{'state':state,'context':'localization/releases','description':description[:140],'target_url':'https://github.com/'+REPO+'/actions/runs/'+os.environ['GITHUB_RUN_ID']})
 def publish():
  assert os.environ['GITHUB_REPOSITORY']==REPO
+ assert api('GET','/git/ref/heads/main')['object']['sha']==os.environ['GITHUB_SHA'],'superseded build'
  assert api('GET','')['private'] is True,'This workflow only publishes to the private repository.'
  rows=json.loads((ROOT/'upstream/releases.json').read_text());runtime=json.loads((ROOT/'tests/runtime-results.json').read_text());evidence={x['version']:x for x in runtime['results']}
  assert len(rows)==len(evidence)==19

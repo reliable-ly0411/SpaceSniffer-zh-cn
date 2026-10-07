@@ -9,7 +9,7 @@ permissions:
   statuses: write
 concurrency:
   group: private-localization-releases
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   build-publish:
     runs-on: ubuntu-latest

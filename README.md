@@ -2,7 +2,7 @@
 
 非官方汉化；仓库用于私有研究和兼容性验证。SpaceSniffer 是闭源免费软件，原程序和文档的版权归 Uderzo Software / Umberto Uderzo。免费不等于开源或允许修改再分发，原版 Disclaimer.txt 明确限制修改软件文件；本项目不声称取得官方授权，未经权利人许可不得公开分发修改程序。
 
-本项目覆盖官网下载列表的 19 个版本（2009–2026）。每个版本单独构建，发布页包含未经修改的原版 ZIP、资源汉化 ZIP、MD5、SHA1、SHA256、官方日期、官方发布说明链接及中文摘要、汉化范围和版权说明。原版完整发布声明和版权文件均保留在 ZIP 中。发布标签为 `v版本号-zh1`。
+本项目覆盖官网下载列表的 19 个版本（2009–2026）。每个版本单独构建，发布页包含未经修改的原版 ZIP、资源汉化 ZIP、MD5、SHA1、SHA256、官方日期、官方发布说明链接及中文摘要、汉化范围和版权说明。原包附带的发布声明和版权文件原样保留；1.0.3.18 原包未附发布说明，官网记录为首次公开发布。发布标签为 `v版本号-zh1`。
 
 [全部 Releases](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/releases) · [官方发布列表](https://www.uderzo.it/main_products/space_sniffer/download_alt.html) · [官方发布声明](https://www.uderzo.it/main_products/space_sniffer/release_notes.html)
 
