@@ -1,0 +1,349 @@
+{
+  "tested_date": "2026-10-07",
+  "environment": "Windows 10 Pro x64, zh-CN system locale, LocalSystem Session 0",
+  "scope": "Startup and native window/menu Chinese text; no complete interactive scan or DPI visual validation",
+  "results": [
+    {
+      "version": "1.0.3.18",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "fa71147128d3021c683a6fa44595a78ff09420d34c9e9991fa303d8ec9bbf25a",
+      "text": [
+        "关于 SpaceSniffer",
+        "SpaceSniffer 设置",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.0.3.18 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer"
+      ]
+    },
+    {
+      "version": "1.0.4.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "aab2e0278ce9b3af4e75cbc08591df97082ed00d7ea168f720b262de91d06d0c",
+      "text": [
+        "关于 SpaceSniffer",
+        "SpaceSniffer 设置",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.0.4.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer"
+      ]
+    },
+    {
+      "version": "1.1.0.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "50a87bd4a9c346a202e18642ccfde77b658a6026ecd0629c629360aaf7f303ba",
+      "text": [
+        "关于 SpaceSniffer",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.1.0.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer"
+      ]
+    },
+    {
+      "version": "1.1.2.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "435597464b3b0fb137fec3594f3fc71a3018ebafd4a785311c77c287a7249b3a",
+      "text": [
+        "日志窗口",
+        "关于 SpaceSniffer",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.1.2.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置",
+        "SpaceSniffer"
+      ]
+    },
+    {
+      "version": "1.1.3.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "086183cdde978a4ececa956c6faa66e5df2e053979faea82e801c9f1301e212b",
+      "text": [
+        "日志窗口",
+        "关于 SpaceSniffer",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.1.3.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.1.3.1",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "04f3478d24929f393ec44da7d1795cb0b3bd22176c9e9af06bd440837729bb46",
+      "text": [
+        "日志窗口",
+        "关于 SpaceSniffer",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.1.3.1 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.1.4.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "e7d2e4a2ca05087f2c252b2731e55482e5d838e9897d2097e92073c3dc4cb131",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择驱动器或输入路径",
+        "SpaceSniffer 1.1.4.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.2.0.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "9732c328094cc09718a3cb85ebdfee5ce93f357fb8622d6d48bfb21e4731182f",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.2.0.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.2.0.1",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "20edbed0c5b856744de59414ea4d43ee603503abe6b902bac35ae0d1a1e0e4f7",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.2.0.1 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.2.0.2",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "2451b1f45fa0126cbfdb52d006ea28ddbe891f538f1bd5c468470a26dd2a721a",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.2.0.2 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.3.0.0",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "99807313bd368b9bc22593e918598ca7dfe56114148762b72b787330269a0950",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.3.0.0 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.3.0.1",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "27f0a3d403ace02e08b470ef18d0579ca615c3ee640d84b8a66759863ff425a9",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.3.0.1 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "1.3.0.2",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "c1b2e9bbcaf83d8734d332d90d1373641cf2ef33c838941188ee838d5432f4e2",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 1.3.0.2 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "2.0.1.4",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "4e54547f4526305a2f5ef05b9a69f686f55822df57bc300163b757ef0c385638",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.0.1.4 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置",
+        "C:\\Windows\\Temp\\SpaceSnifferZh-20261007-A\\final19\\2.0.1.4\\SpaceSniffer.exe"
+      ]
+    },
+    {
+      "version": "2.0.2.5",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "f1de78c1228abd56b54a9298d95c7280ea3a46ffb197adf7a3ecab7d8e8fd5fe",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.0.2.5 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "2.0.3.12",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "c2082f291bdac7d7d150930d360f7e2b834449d72b4efdac6c37a1c2faf310a1",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.0.3.12 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "2.0.5.18",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "a39f57ab40779f5755e8cf5e5e7509caa68aba5f8768320cd18aae895890dd30",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.0.5.18 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "2.1.0.21",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "9574000c3b11536c9e30fba8049a662377285ba71c186779ea73e12e78f0a2fc",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.1.0.21 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    },
+    {
+      "version": "2.2.0.27",
+      "alive": true,
+      "chinese": true,
+      "exe_sha256": "d2fb8d13e4eb00d87f2db777103fb20085f19e07daefbb2bbc9857f364e9b340",
+      "text": [
+        "SpaceSniffer 日志窗口",
+        "关于 SpaceSniffer",
+        "选择扫描位置",
+        "SpaceSniffer 2.2.0.27 - www.uderzo.it",
+        "文件(&F)",
+        "编辑(&E)",
+        "窗口(&W)",
+        "帮助(&H)",
+        "SpaceSniffer - 导出当前视图范围",
+        "SpaceSniffer 设置"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+name: Build and publish all localized versions
+on:
+  push:
+    branches: [main]
+    paths: ['tools/**', 'translations/**', 'upstream/**', 'tests/**', '.github/workflows/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: private-localization-releases
+  cancel-in-progress: false
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Report start
+        run: python tools/publish.py pending 'Building and verifying 19 versions'
+      - name: Build every pinned version
+        run: python tools/build.py
+      - name: Verify archives, documents, PE imports and reproducibility
+        run: python -m unittest discover -s tests -v
+      - name: Publish and verify private release assets
+        run: python tools/publish.py
+      - name: Preserve publication receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-receipt
+          path: dist/published.json
+          if-no-files-found: ignore
+      - name: Report failure
+        if: failure()
+        run: python tools/publish.py failure 'Build, verification or publication failed; inspect job logs'
