@@ -1,0 +1,9 @@
+.cache/
+build/
+dist/
+__pycache__/
+*.pyc
+*.exe
+*.zip
+*.tar.xz
+.venv/
