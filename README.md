@@ -1,6 +1,6 @@
 # SpaceSniffer 简体中文资源汉化
 
-非官方汉化；仓库用于私有研究和兼容性验证。SpaceSniffer 是闭源免费软件，原程序和文档的版权归 Uderzo Software / Umberto Uderzo。免费不等于开源或允许修改再分发，原版 Disclaimer.txt 明确限制修改软件文件；本项目不声称取得官方授权，未经权利人许可不得公开分发修改程序。
+非官方汉化；仓库公开提供资源汉化工具与兼容性验证记录。SpaceSniffer 是闭源免费软件，原程序和文档的版权归 Uderzo Software / Umberto Uderzo。免费不等于开源或允许修改再分发，原版 Disclaimer.txt 明确限制修改软件文件；本项目不声称取得官方授权，未经权利人许可不得公开分发修改程序。
 
 本项目覆盖官网下载列表的 19 个版本（2009–2026）。每个版本单独构建，发布页包含未经修改的原版 ZIP、资源汉化 ZIP、MD5、SHA1、SHA256、官方日期、官方发布说明链接及中文摘要、汉化范围和版权说明。原包附带的发布声明和版权文件原样保留；1.0.3.18 原包未附发布说明，官网记录为首次公开发布。发布标签为 `v版本号-zh1`。
 
@@ -48,7 +48,7 @@ python tools/build.py --version 2.2.0.27     # 只构建指定版本
 python -m unittest discover -s tests -v
 ```
 
-构建结果位于 `dist/版本号/`。源码仓库不提交原程序二进制；它们仅作为私有 Release 附件。6 个失效的官网链接使用历史镜像恢复，下载包同时匹配官网 MD5 和 SHA1，来源记录在 upstream/recovery-sources.json。
+构建结果位于 `dist/版本号/`。源码树不提交原程序二进制；现有二进制文件位于 Release 附件。仓库公开可见不代表已获得修改程序的再分发授权，适用限制见上方版权说明。6 个失效的官网链接使用历史镜像恢复，下载包同时匹配官网 MD5 和 SHA1，来源记录在 upstream/recovery-sources.json。
 
 测试包括所有版本的原包校验、文档逐字节保留、PE 导入表检查、原有代码节不变、篡改输入拒绝和 ZIP 可复现性。tests/runtime-results.json 保存 Windows 10 x64 / zh-CN 非交互会话下逐版本启动、中文窗口及菜单读取结果，并与 EXE SHA256 绑定。tests/windows-smoke.ps1 可在 Windows 重跑。该测试不等于实际用户桌面、扫描结果正确性、所有 DPI、全部弹窗和交互流程的视觉验收。
 
