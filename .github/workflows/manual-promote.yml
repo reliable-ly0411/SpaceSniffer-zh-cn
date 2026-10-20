@@ -1,0 +1,28 @@
+name: Promote verified candidate (rights gate)
+on:
+  workflow_dispatch:
+    inputs:
+      build_run_id:
+        description: Existing successful candidate run, never a request to rebuild
+        required: true
+        type: string
+      source_sha:
+        description: Exact source SHA recorded in candidate
+        required: true
+        type: string
+      candidate_sha256:
+        description: Candidate artifact SHA256
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  rights-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail closed until redistribution and version mapping are approved
+        run: |
+          echo 'Publication blocked: upstream redistribution rights and downstream SemVer mapping are not established.'
+          echo 'Existing private-repository and immutable-asset guards in tools/auto_update.py and tools/publish.py remain unchanged.'
+          echo 'No build, download, tag, release, credential or repository setting is changed by this interface.'
+          exit 1

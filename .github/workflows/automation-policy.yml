@@ -1,0 +1,23 @@
+name: Validate release policy (lightweight)
+on:
+  push:
+    paths: ['.github/**', 'tests/test_auto_update.py']
+  pull_request:
+    paths: ['.github/**', 'tests/test_auto_update.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install PyYAML==6.0.2
+      - run: python -m unittest discover -s .github/automation -p 'test_*.py' -v
+      - run: python -m unittest discover -s tests -p test_auto_update.py -v
