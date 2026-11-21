@@ -2,9 +2,9 @@
 
 非官方汉化；仓库公开提供资源汉化工具与兼容性验证记录。SpaceSniffer 是闭源免费软件，原程序和文档的版权归 Uderzo Software / Umberto Uderzo。免费不等于开源或允许修改再分发，原版 Disclaimer.txt 明确限制修改软件文件；本项目不声称取得官方授权，未经权利人许可不得公开分发修改程序。
 
-本项目覆盖官网下载列表的 19 个版本（2009–2026）。每个版本单独构建，发布页包含未经修改的原版 ZIP、资源汉化 ZIP、MD5、SHA1、SHA256、官方日期、官方发布说明链接及中文摘要、汉化范围和版权说明。原包附带的发布声明和版权文件原样保留；1.0.3.18 原包未附发布说明，官网记录为首次公开发布。发布标签为 `v版本号-zh1`。
+历史验证覆盖官网下载列表的 19 个版本（2009–2026）。历史标签格式为 `v版本号-zh1`；历史附件的存在不代表已获得上游修改或再分发许可。
 
-[全部 Releases](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/releases) · [官方发布列表](https://www.uderzo.it/main_products/space_sniffer/download_alt.html) · [官方发布声明](https://www.uderzo.it/main_products/space_sniffer/release_notes.html)
+[官方发布列表](https://www.uderzo.it/main_products/space_sniffer/download_alt.html) · [官方发布声明](https://www.uderzo.it/main_products/space_sniffer/release_notes.html)
 
 ## 覆盖范围
 
@@ -32,25 +32,15 @@
 | 1.0.4.0 | x86 | 2009-05-08 | 99 | 30 |
 | 1.0.3.18 | x86 | 2009-04-18 | 98 | 30 |
 
-## 安装与回退
+## 获取原版与源码校验
 
-从相应 Release 下载 `*-zh-CN-zh1.zip`，解压到独立目录后运行 `SpaceSniffer.exe`。汉化 ZIP 包含中文说明、COPYRIGHT-zh-CN.txt、LOCALIZATION-REPOSITORY.txt 和详细覆盖清单；原版文档保持原样。旧版依赖 Windows 非 Unicode 程序的系统代码页，在简体中文区域设置下完成测试。
-
-恢复时退出汉化版，将同一个 Release 中的官方原版 ZIP 解压到新目录。MD5、SHA1 用于核对官网历史值，SHA256 用于产物校验。不要把不同版本的补丁或配置文件直接混用。
-
-## 构建与验证
-
-需要 Python 3.12；老版本自动使用经 SHA256 锁定的官方 UPX 5.2.1 解包。脚本先验证原版 ZIP 的三种校验值和 EXE SHA256，未知版本或哈希不匹配会停止。
+如需使用 SpaceSniffer，请从[官方发布列表](https://www.uderzo.it/main_products/space_sniffer/download_alt.html)下载未修改的原版，并核对官网列出的校验值。当前公开 CI 仅进行元数据与源码校验，不提供新的汉化二进制。
 
 ```sh
-python tools/build.py                       # 构建全部 19 个版本
-python tools/build.py --version 2.2.0.27     # 只构建指定版本
-python -m unittest discover -s tests -v
+python -m unittest discover -s tests -p test_auto_update.py -v
 ```
 
-构建结果位于 `dist/版本号/`。源码树不提交原程序二进制；现有二进制文件位于 Release 附件。仓库公开可见不代表已获得修改程序的再分发授权，适用限制见上方版权说明。6 个失效的官网链接使用历史镜像恢复，下载包同时匹配官网 MD5 和 SHA1，来源记录在 upstream/recovery-sources.json。
-
-测试包括所有版本的原包校验、文档逐字节保留、PE 导入表检查、原有代码节不变、篡改输入拒绝和 ZIP 可复现性。tests/runtime-results.json 保存 Windows 10 x64 / zh-CN 非交互会话下逐版本启动、中文窗口及菜单读取结果，并与 EXE SHA256 绑定。tests/windows-smoke.ps1 可在 Windows 重跑。该测试不等于实际用户桌面、扫描结果正确性、所有 DPI、全部弹窗和交互流程的视觉验收。
+历史验证包括所有版本的原包校验、文档逐字节保留、PE 导入表检查、原有代码节不变、篡改输入拒绝和 ZIP 可复现性。tests/runtime-results.json 保存 Windows 10 x64 / zh-CN 非交互会话下逐版本启动、中文窗口及菜单读取结果，并与 EXE SHA256 绑定。tests/windows-smoke.ps1 可在 Windows 重跑。该测试不等于实际用户桌面、扫描结果正确性、所有 DPI、全部弹窗和交互流程的视觉验收。
 
 ## 旧版解包兼容修复
 
@@ -64,18 +54,6 @@ python -m unittest discover -s tests -v
 
 ## 自动追踪官方最新版
 
-仓库内的 [Automatically localize official updates](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/actions/workflows/auto-update.yml) 每天 **北京时间 09:17（UTC 01:17）**检查官方下载表。GitHub 定时任务可能延迟执行，不保证准点。也可点击 **Run workflow** 手动检查；勾选 `verify_existing` 会对已发布最新版重新构建并做 Windows 检查，但不修改已有发布。
+[每日元数据检查](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/actions/workflows/source-sync.yml) 计划于北京时间 09:17（UTC 01:17）读取官网发布表，也可[手动检查](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/actions/workflows/auto-update.yml)。检查仅报告版本、架构、发布日期、下载链接和官网校验值；已知版本的标识变化会使检查失败。结果保留在 GitHub Actions 日志和运行摘要中。
 
-流程会自动读取版本、架构、官方日期、下载地址、MD5 和 SHA1。已发布且元数据一致时直接结束；发现新版本后下载官网原包、核对哈希与 PE 内部版本，复用现有译文构建汉化包，再检查文件完整性、文档保留和代码节不变。随后在独立的 GitHub Windows runner 上实际启动候选 EXE，检查进程存活及“文件、编辑、窗口、帮助”四个中文菜单。核验的 EXE 与 ZIP 内 EXE 使用 SHA256 绑定。
-
-只有这些检查全部通过，才将新版本哈希和 Windows 检查记录写回仓库，并创建带原版、汉化版、MD5/SHA1/SHA256、官方日期、发布说明与版权声明的 Release。新版本没有人工编写的中文发布摘要时会明确提示查看官方原文，不编造摘要。
-
-以下情况停止发布，并在 Actions 的日志及 `automatic-candidate` / `automatic-windows-runtime` 附件中留下诊断：官网表格或下载来源变化、已知版本校验值变化、PE 版本/架构不符、新窗体或组件结构、未覆盖的可译文本、Windows 启动/菜单检查失败。新增词条需要补充 translations/zh-CN.json；界面结构变化需检查并更新 upstream/auto-compatibility.json，再手动重跑。这里的自动汉化是复用已经审核的译文，不调用外部 AI 服务，也不要求配置 API 密钥。
-
-首次部署及相关代码更新会用当前最新版执行完整演练。如果该版本已有正式发布，只进行构建和验证，不覆盖附件、不新增重复标签。失败可使用 GitHub 的 Re-run jobs 重试；未完成的草稿会在下次通过校验后继续上传。官方没有新版本时仅执行轻量检查。通知遵循你现有的 GitHub Actions 通知设置。
-
-该流程属于**启动与菜单冒烟验证**，不是完整使用验收；扫描准确性、过滤与导出、右键操作和不同 DPI 的视觉布局仍需人工验证。支持范围也仍是资源汉化，动态内嵌文字及 PDF 不会自动全译。
-
-## 历史版本发布
-
-`Build and publish all localized versions` 保留为手动工作流，用于重建已经锁定的历史版本。两个发布工作流共用并发锁。已发布附件如不一致会停止，绝不静默覆盖；修改已有版本的译文应升级汉化修订号并重新验证。
+[手动源码校验](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/actions/workflows/releases.yml) 只运行使用模拟数据的定向测试。上述工作流不下载、构建或启动上游程序，不上传 Actions 附件，也不创建或修改任何 Release。[发布入口](https://github.com/reliable-ly0411/SpaceSniffer-zh-cn/actions/workflows/manual-promote.yml) 仍因待核实的修改和再分发许可及版本映射而阻断；此工作流调整不改变既有 Release 或标签。

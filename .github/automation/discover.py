@@ -1,12 +1,31 @@
 #!/usr/bin/env python3
 """Read official metadata only. Never download executables, build or publish."""
-import importlib.util
 import json
 from pathlib import Path
 import sys
+import urllib.request
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 import auto_update
+
+MAX_HTML_BYTES = 2 * 1024 * 1024
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise ValueError('Official metadata endpoint redirected; review the new source manually')
+
+
+def fetch_metadata_html():
+    # No redirects even on the official host (a redirect could target a ZIP).
+    with urllib.request.build_opener(NoRedirect()).open(auto_update.PAGE, timeout=60) as response:
+        if response.geturl() != auto_update.PAGE or response.headers.get_content_type() != 'text/html':
+            raise ValueError('Expected only the official HTML metadata page')
+        data = response.read(MAX_HTML_BYTES + 1)
+    if len(data) > MAX_HTML_BYTES:
+        raise ValueError('Official metadata exceeds the size limit')
+    return data.decode('iso-8859-1')
+
 
 def classify(row, policy, known):
     previous = next((entry for entry in known if entry['version'] == row['version']), None)
@@ -23,7 +42,7 @@ def classify(row, policy, known):
 if __name__ == '__main__':
     policy = json.loads((ROOT / '.github/automation/policy.json').read_text())
     known = auto_update.read(ROOT / 'upstream/releases.json')
-    row = auto_update.parse_latest(auto_update.fetch_official(auto_update.PAGE, 2*1024*1024).decode('iso-8859-1'))
+    row = auto_update.parse_latest(fetch_metadata_html())
     result = classify(row, policy, known)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     import os
