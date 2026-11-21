@@ -1,23 +1,15 @@
-name: Build official latest candidate (manual, no publication)
+name: Check official latest (manual, metadata only)
 on:
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: private-localization-releases
+  group: official-metadata-sync
   cancel-in-progress: false
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-    outputs:
-      build: ${{ steps.prepare.outputs.build }}
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PYTHONUTF8: '1'
-      VERIFY_EXISTING: 'true'
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,57 +17,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -s tests -p test_auto_update.py -v
-      - name: Discover and build the official latest
-        id: prepare
-        shell: bash
-        run: |
-          args=()
-          if [[ "$VERIFY_EXISTING" == "true" ]]; then args+=(--verify-existing); fi
-          python tools/auto_update.py prepare --offline "${args[@]}"
-      - name: Preserve discovery and candidate diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: automatic-candidate
-          path: automation/
-          if-no-files-found: ignore
-          retention-days: 30
-  windows:
-    needs: check
-    if: needs.check.outputs.build == 'true'
-    runs-on: windows-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: actions/download-artifact@v4
-        with:
-          name: automatic-candidate
-          path: automation
-      - name: Check actual candidate process and Chinese menus
-        shell: pwsh
-        run: ./tests/auto-windows-smoke.ps1 -Root automation/smoke -Output automation/runtime.json
-      - name: Preserve runtime evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: automatic-windows-runtime
-          path: automation/runtime.json
-          if-no-files-found: ignore
-          retention-days: 30
-  report:
-    if: always()
-    needs: [check, windows]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    env:
-      CHECK: ${{ needs.check.result }}
-      WINDOWS: ${{ needs.windows.result }}
-      BUILD: ${{ needs.check.outputs.build }}
-    steps:
-      - run: |
-          if [[ "$CHECK" != "success" || ( "$BUILD" == "true" && "$WINDOWS" != "success" ) ]]; then exit 1; fi
-          echo 'Candidate and Windows checks only. No publication or metadata commit.' >> "$GITHUB_STEP_SUMMARY"
+      - run: python .github/automation/discover.py
